@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>My library — Creative Inkers</title>
+<meta name="description" content="Every design you own, re-downloadable forever, with your licence attached.">
+<meta name="theme-color" content="#171519">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,400;112,600;112,800;112,900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/system.css?v=12">
+<style>
+  .lib{display:grid;grid-template-columns:220px 1fr;gap:var(--s5);align-items:start;padding-block:var(--s5)}
+  .lib-nav{display:flex;flex-direction:column;border:1px solid var(--rule);background:var(--panel)}
+  .lib-nav a{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);text-decoration:none;padding:var(--s3);border-left:3px solid transparent;
+    border-bottom:1px solid var(--rule);
+  }
+  .lib-nav a:last-child{border-bottom:0}
+  .lib-nav a:hover{color:var(--ink)}
+  .lib-nav a[aria-current]{color:var(--ink);border-left-color:var(--accent);background:var(--panel-2)}
+  .lib-toolbar{display:flex;gap:var(--s3);align-items:center;flex-wrap:wrap;margin:var(--s4) 0}
+  .lib-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s3)}
+  .lib-card{border:1px solid var(--rule);background:var(--panel);display:flex;flex-direction:column}
+  .lib-card .thumb{aspect-ratio:1/1;padding:16%;display:grid;place-items:center;border-bottom:1px solid var(--rule);position:relative}
+  .lib-card img{width:100%;height:100%;object-fit:contain}
+  .lib-card .meta{padding:12px;display:flex;flex-direction:column;gap:4px}
+  .lib-card .dl{position:absolute;right:8px;bottom:8px}
+  .lic-panel{display:flex;gap:var(--s5);align-items:center;flex-wrap:wrap;justify-content:space-between}
+  .lic-panel .cellgroup{display:flex;gap:var(--s5);flex-wrap:wrap}
+  @media (max-width:1080px){.lib-grid{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:900px){.lib{grid-template-columns:1fr}.lib-nav{flex-direction:row;overflow-x:auto}.lib-nav a{border-bottom:0;border-left:0;border-right:1px solid var(--rule);white-space:nowrap}}
+  @media (max-width:640px){.lib-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="utility">
+  <div class="wrap">
+    <div class="utility-specs">
+      <span class="mono">Instant download</span>
+      <span class="mono">Commercial licence included</span>
+      <span class="mono">300 DPI · transparent PNG</span>
+    </div>
+    <span class="mono">215 designs · new drop every Thursday</span>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">Creative Inkers</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="category.html">Designs</a>
+      <a href="bundles.html">Bundles</a>
+      <a href="bundles.html#all-access">Membership</a>
+      <a href="licence.html">Licence</a>
+      <a href="learn.html">Learn</a>
+    </nav>
+    <form class="search-field" role="search" action="search.html" data-inert data-inert-msg="Search is a prototype — see the results pages">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l4 4"/></svg>
+      <input type="search" name="q" placeholder="Search 215 designs — try 'quilting' or 'faith'" aria-label="Search designs">
+    </form>
+    <div class="mast-actions">
+      <button class="icon-btn menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+      <a class="icon-btn" href="library.html">Account</a>
+      <a class="icon-btn" href="checkout.html">Cart <span class="cart-count" data-cart-count hidden>0</span></a>
+    </div>
+  </div>
+  <div id="mobile-nav" hidden style="border-top:1px solid #2A272E">
+    <div class="wrap" style="display:flex;flex-direction:column;padding-top:12px;padding-bottom:12px">
+      <a class="icon-btn" style="justify-content:flex-start" href="category.html">Designs</a>
+      <a class="icon-btn" style="justify-content:flex-start" href="bundles.html">Bundles</a>
+      <a class="icon-btn" style="justify-content:flex-start" href="bundles.html#all-access">Membership</a>
+      <a class="icon-btn" style="justify-content:flex-start" href="licence.html">Licence</a>
+      <a class="icon-btn" style="justify-content:flex-start" href="library.html">My library</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap lib">
+    <nav class="lib-nav" aria-label="Account">
+      <a href="library.html" aria-current="page">Library</a>
+      <a href="order-complete.html">Orders</a>
+      <a href="bundles.html#all-access">Membership</a>
+      <a href="licence.html">Licence</a>
+      <a href="library.html" data-demo="Prototype — account settings not built">Account</a>
+    </nav>
+
+    <div>
+      <h1 style="font-size:clamp(30px,4vw,48px)">My library</h1>
+      <div class="row" style="margin-top:var(--s3);flex-wrap:wrap">
+        <span class="badge badge-line">8 designs</span>
+        <span class="mono" style="margin-left:auto">Re-download any file, any time</span>
+      </div>
+
+      <div class="lib-toolbar">
+        <form class="search-field" style="background:var(--panel);border-color:var(--rule-strong);max-width:320px" data-inert data-inert-msg="Prototype — search not connected">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M11 11l4 4"/></svg>
+          <input type="search" placeholder="Search my designs" aria-label="Search my designs" style="color:var(--ink)">
+        </form>
+      </div>
+
+      <div class="lib-grid">
+      <div class="lib-card">
+        <div class="thumb alpha alpha-sm">
+          <img loading="lazy" src="assets/img/designs/every-thread.svg" alt="Every Thread Is a Prayer">
+          <button class="sq dl" type="button" aria-label="Download Every Thread Is a Prayer" onclick="this.textContent='✓'">↓</button>
+        </div>
+        <div class="meta">
+          <span style="font-size:13.5px;font-weight:600">Every Thread Is a Prayer</span>
+          <span class="mono">24 Aug 2026 · 12.4 MB</span>
+        </div>
+      </div>
+      <div class="lib-card">
+        <div class="thumb alpha alpha-sm">
+          <img loading="lazy" src="assets/img/designs/sewing-machine.svg" alt="Vintage Sewing Machine">
+          <button class="sq dl" type="button" aria-label="Download Vintage Sewing Machine" onclick="this.textContent='✓'">↓</button>
+        </div>
+        <div class="meta">
+          <span style="font-size:13.5px;font-weight:600">Vintage Sewing Machine</span>
+          <span class="mono">24 Aug 2026 · 9.1 MB</span>
+        </div>
+      </div>
+      <div class="lib-card">
+        <div class="thumb alpha alpha-sm">
+          <img loading="lazy" src="assets/img/designs/quilt-till-you-wilt.svg" alt="Quilt Till You Wilt">
+          <button class="sq dl" type="button" aria-label="Download Quilt Till You Wilt" onclick="this.textContent='✓'">↓</button>
+        </div>
+        <div class="meta">
+          <span style="font-size:13.5px;font-weight:600">Quilt Till You Wilt</span>
+          <span class="mono">17 Aug 2026 · 8.8 MB</span>
+        </div>
+      </div>
+      <div class="lib-card">
+        <div class="thumb alpha alpha-sm">
+          <img loading="lazy" src="assets/img/designs/patchwork-block.svg" alt="Modern Patchwork Block">
+          <button class="sq dl" type="button" aria-label="Download Modern Patchwork Block" onclick="this.textContent='✓'">↓</button>
+        </div>
+        <div class="meta">
+          <span style="font-size:13.5px;font-weight:600">Modern Patchwork Block</span>
+          <span class="mono">17 Aug 2026 · 15.1 MB</span>
+        </div>
+      </div>
+      <div class="lib-card">
+        <div class="thumb alpha alpha-sm">
+          <img loading="lazy" src="assets/img/designs/fabric-stash.svg" alt="She Who Hoards Fabric">
+          <button class="sq dl" type="button" aria-label="Download She Who Hoards Fabric" onclick="this.textContent='✓'">↓</button>
+        </div>
+        <div class="meta">
+          <span style="font-size:13.5px;font-weight:600">She Who Hoards Fabric</span>
+          <span class="mono">10 Aug 2026 · 11.3 MB</span>
+        </div>
+      </div>
+      <div class="lib-card">
+        <div class="thumb alpha alpha-sm">
+          <img loading="lazy" src="assets/img/designs/sunflower.svg" alt="Grow Through It">
+          <button class="sq dl" type="button" aria-label="Download Grow Through It" onclick="this.textContent='✓'">↓</button>
+        </div>
+        <div class="meta">
+          <span style="font-size:13.5px;font-weight:600">Grow Through It</span>
+          <span class="mono">3 Aug 2026 · 10.6 MB</span>
+        </div>
+      </div>
+      <div class="lib-card">
+        <div class="thumb alpha alpha-sm">
+          <img loading="lazy" src="assets/img/designs/faith-over-fear.svg" alt="Faith Over Fear">
+          <button class="sq dl" type="button" aria-label="Download Faith Over Fear" onclick="this.textContent='✓'">↓</button>
+        </div>
+        <div class="meta">
+          <span style="font-size:13.5px;font-weight:600">Faith Over Fear</span>
+          <span class="mono">3 Aug 2026 · 9.9 MB</span>
+        </div>
+      </div>
+      <div class="lib-card">
+        <div class="thumb alpha alpha-sm">
+          <img loading="lazy" src="assets/img/designs/awareness-ribbon.svg" alt="Still Here Still Fighting">
+          <button class="sq dl" type="button" aria-label="Download Still Here Still Fighting" onclick="this.textContent='✓'">↓</button>
+        </div>
+        <div class="meta">
+          <span style="font-size:13.5px;font-weight:600">Still Here Still Fighting</span>
+          <span class="mono">27 Jul 2026 · 8.2 MB</span>
+        </div>
+      </div>
+      </div>
+
+      <div class="panel panel-pad lic-panel" style="margin-top:var(--s5)">
+        <div class="cellgroup">
+          <div><strong>Your licence</strong></div>
+          <div><span class="mono" style="display:block">Order no.</span><strong class="tnum" translate="no">CI-10428</strong></div>
+          <div><span class="mono" style="display:block">Tier</span><span class="badge badge-line" style="color:var(--accent);border-color:var(--accent)">Commercial</span></div>
+        </div>
+        <a class="btn btn-quiet" href="licence.html">Download licence PDF</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div>
+        <a class="wordmark" href="index.html">Creative Inkers</a>
+        <p style="font-size:14px;max-width:34ch">Sublimation and DTF design files for people who sell what they print.</p>
+        <div class="pay-marks" style="margin-top:var(--s3)">
+          <span class="pay-mark">Visa</span><span class="pay-mark">Mastercard</span>
+          <span class="pay-mark">Amex</span><span class="pay-mark">PayPal</span>
+          <span class="pay-mark">Apple Pay</span><span class="pay-mark">Google Pay</span>
+        </div>
+      </div>
+      <div>
+        <div class="ft">Shop</div>
+        <ul>
+          <li><a href="category.html">All designs</a></li>
+          <li><a href="bundles.html">Vaults</a></li>
+          <li><a href="bundles.html#all-access">All-Access</a></li>
+          <li><a href="search.html">Search</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft">Using the files</div>
+        <ul>
+          <li><a href="licence.html">Licence</a></li>
+          <li><a href="product.html#how-to-print">How to print</a></li>
+          <li><a href="library.html">My library</a></li>
+          <li><a href="learn.html">Learn</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft">Company</div>
+        <ul>
+          <li><a href="learn.html">About</a></li>
+          <li><a href="learn.html">Contact</a></li>
+          <li><a href="licence.html#refunds">Refunds</a></li>
+          <li><a href="licence.html">Terms &amp; privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="mono">Prototype build — no payments, accounts or downloads are connected</span>
+      <span class="mono">© 2026 Creative Inkers</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookiebar" id="cookiebar" hidden>
+  <p>We use cookies to measure traffic. Nothing is shared with advertisers.</p>
+  <div class="row">
+    <button class="btn-quiet btn" type="button" data-cookie="reject">Reject</button>
+    <button class="btn-quiet btn" type="button" data-cookie="accept">Accept</button>
+  </div>
+</div>
+
+<script src="assets/js/site.js?v=12"></script>
+</body>
+</html>

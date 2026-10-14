@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Vintage sewing machine with floral elements">
+  <g fill="#8C2F39">
+    <circle cx="118" cy="150" r="30"/><circle cx="86" cy="196" r="22"/><circle cx="156" cy="196" r="22"/>
+    <circle cx="524" cy="472" r="28"/><circle cx="494" cy="514" r="20"/><circle cx="556" cy="514" r="20"/>
+  </g>
+  <g fill="#3F6B4F">
+    <path d="M118 186c-40 26-58 74-46 122" stroke="#3F6B4F" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M524 504c34 24 48 66 40 108" stroke="#3F6B4F" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <ellipse cx="88" cy="266" rx="30" ry="15" transform="rotate(-32 88 266)"/>
+    <ellipse cx="566" cy="566" rx="28" ry="14" transform="rotate(28 566 566)"/>
+  </g>
+  <rect x="130" y="430" width="400" height="42" fill="#1F2937"/>
+  <rect x="150" y="472" width="360" height="16" fill="#111827"/>
+  <path d="M180 430V262c0-22 18-40 40-40h112v54H236v154Z" fill="#1F2937"/>
+  <rect x="332" y="222" width="150" height="54" rx="8" fill="#1F2937"/>
+  <path d="M446 276h44v100c0 20-16 34-36 34h-24v-46h16Z" fill="#1F2937"/>
+  <circle cx="240" cy="272" r="26" fill="#C99A3B"/>
+  <circle cx="240" cy="272" r="10" fill="#1F2937"/>
+  <rect x="452" y="404" width="10" height="34" fill="#6B7280"/>
+  <path d="M457 438v-8" stroke="#8C2F39" stroke-width="4"/>
+  <g stroke="#8C2F39" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M254 300c30 24 22 62-8 78s-40 54-10 76"/>
+  </g>
+  <text x="320" y="576" text-anchor="middle" font-family="Georgia,serif" font-size="46" font-style="italic" fill="#1F2937">Sew It Begins</text>
+</svg>

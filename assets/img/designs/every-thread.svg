@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" role="img" aria-label="Every Thread Is a Prayer design">
+  <g fill="none" stroke="#1B2A4A" stroke-width="7" stroke-linecap="round">
+    <path d="M120 200c60-46 118 34 62 74s-2 118 62 74"/>
+    <path d="M244 348c62-44 116 36 60 76s-4 116 60 72"/>
+    <path d="M364 496c56-40 108 30 56 70"/>
+  </g>
+  <g stroke="#C2410C" stroke-width="7" stroke-linecap="round" fill="none">
+    <path d="M112 236c-46 26-64 84-38 130"/>
+    <path d="M96 402c-40 30-48 84-18 124"/>
+  </g>
+  <g transform="translate(430 128) rotate(28)">
+    <path d="M0 0 L14 0 L14 168 L7 190 L0 168 Z" fill="#8C6239"/>
+    <circle cx="7" cy="26" r="6" fill="none" stroke="#F3F1F3" stroke-width="3.5"/>
+  </g>
+  <path d="M70 560h460" stroke="#1B2A4A" stroke-width="4"/>
+  <text x="300" y="622" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="60" fill="#1B2A4A">Every Thread</text>
+  <text x="300" y="682" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="46" fill="#C2410C">is a Prayer</text>
+</svg>

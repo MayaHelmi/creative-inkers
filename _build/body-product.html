@@ -1,0 +1,264 @@
+  <div class="wrap">
+    <div class="pd" data-viewer>
+
+      <!-- PREVIEW COLUMN -->
+      <div>
+        <div class="viewer-tabs" role="tablist" aria-label="Preview views">
+          <button type="button" role="tab" id="tab-flat-file" aria-controls="pane-flat-file" tabindex="0" data-view="flat-file" aria-selected="true">Flat file</button>
+          <button type="button" role="tab" id="tab-on-a-shirt" aria-controls="pane-on-a-shirt" tabindex="-1" data-view="on-a-shirt" aria-selected="false">On a shirt</button>
+          <button type="button" role="tab" id="tab-actual-size" aria-controls="pane-actual-size" tabindex="-1" data-view="actual-size" aria-selected="false">Actual print size</button>
+        </div>
+
+        <div class="viewer">
+          <div data-pane="flat-file" id="pane-flat-file" role="tabpanel" aria-labelledby="tab-flat-file" class="pane-flat alpha">
+            <img fetchpriority="high" src="assets/img/designs/every-thread.svg" alt="Every Thread Is a Prayer — flat design file on a transparent background">
+          </div>
+          <div data-pane="on-a-shirt" id="pane-on-a-shirt" role="tabpanel" aria-labelledby="tab-on-a-shirt" class="mockup mockup-lg" hidden>
+            <img loading="lazy" class="art" src="assets/img/designs/every-thread.svg" alt="Every Thread Is a Prayer shown printed on the chest of a t-shirt">
+          </div>
+          <div data-pane="actual-size" id="pane-actual-size" role="tabpanel" aria-labelledby="tab-actual-size" class="pane-size" hidden>
+            <svg viewBox="0 0 560 560" role="img" aria-label="Technical drawing: the design at its printed size of 11 by 13.2 inches on an adult t-shirt outline">
+              <!-- shirt outline -->
+              <g transform="translate(60 20) scale(.86)">
+                <path d="M186 40 118 74 60 128l52 62 46-32v354c0 6 5 10 11 10h194c6 0 11-4 11-10V158l46 32 52-62-58-54-68-34c-14 26-40 42-74 42s-60-16-74-42Z" fill="none" stroke="#BEB8C0" stroke-width="1.5"/>
+                <path d="M186 40c14 26 40 42 74 42s60-16 74-42" fill="none" stroke="#BEB8C0" stroke-width="1.5"/>
+              </g>
+              <!-- print area, centred on the garment (body spans ~196-451, centre 323) -->
+              <g>
+                <rect x="223" y="150" width="200" height="240" fill="none" stroke="#D80A50" stroke-width="1.5" stroke-dasharray="6 5"/>
+                <image href="assets/img/designs/every-thread.svg" x="235" y="158" width="176" height="224"/>
+                <path d="M219 150h-8M219 390h-8M223 146v-8M423 146v-8" stroke="#D80A50" stroke-width="1.5"/>
+              </g>
+              <!-- dimension rules, clear of the garment outline -->
+              <g font-family="'IBM Plex Mono',monospace" font-size="11" fill="#57525C">
+                <path d="M150 150v240" stroke="#78727D" stroke-width="1"/>
+                <path d="M145 150h10M145 390h10" stroke="#78727D" stroke-width="1"/>
+                <path d="M223 150h-60M223 390h-60" stroke="#D5D1D6" stroke-width="1"/>
+                <text x="118" y="274" transform="rotate(-90 118 274)" text-anchor="middle" letter-spacing="2">13.2 IN</text>
+                <path d="M223 410h200" stroke="#78727D" stroke-width="1"/>
+                <path d="M223 405v10M423 405v10" stroke="#78727D" stroke-width="1"/>
+                <text x="323" y="432" text-anchor="middle" letter-spacing="2">11.0 IN</text>
+                <text x="300" y="530" text-anchor="middle" letter-spacing="2" fill="#78727D">ADULT FRONT · SCALE 1:6.4</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="viewer-strip">
+          <span>⊕ Click the file to inspect closer</span>
+          <span data-view-readout>VIEW: FLAT_FILE</span>
+        </div>
+      </div>
+
+      <!-- DECISION COLUMN -->
+      <div class="decision">
+        <div class="panel">
+          <div class="row-between" style="margin-bottom:var(--s3)">
+            <nav class="mono" aria-label="Breadcrumb"><a href="category.html" style="color:inherit">Quilting</a></nav>
+            <span class="mono" translate="no">SKU CI-2214</span>
+          </div>
+          <h1 style="font-size:clamp(28px,3.4vw,40px);margin-bottom:var(--s3)">Every Thread Is a Prayer</h1>
+          <div class="price price-lg" style="margin-bottom:var(--s4)">$4.00</div>
+
+          <table class="spec" style="margin-bottom:var(--s4)">
+            <tr><th scope="row">Format</th><td>PNG, transparent background</td></tr>
+            <tr><th scope="row">Dimensions</th><td>4500 × 5400 px</td></tr>
+            <tr><th scope="row">Resolution</th><td>300 DPI</td></tr>
+            <tr><th scope="row">Print size</th><td>Up to 15 × 18 in</td></tr>
+            <tr><th scope="row">Colour</th><td>sRGB</td></tr>
+            <tr><th scope="row">File size</th><td>12.4 MB</td></tr>
+            <tr><th scope="row">Delivery</th><td><span class="badge badge-amber">⚡ Instant</span></td></tr>
+          </table>
+
+          <div class="licence" style="margin-bottom:var(--s4)">
+            <div class="licence-head">Commercial licence — included, no extra fee</div>
+            <div class="licence-cols">
+              <div>
+                <h5>Allowed</h5>
+                <ul class="lic-list">
+                  <li><span class="tick" aria-hidden="true">✓</span> Print and sell finished products</li>
+                  <li><span class="tick" aria-hidden="true">✓</span> Shirts, tumblers, mugs, signs, bags</li>
+                  <li><span class="tick" aria-hidden="true">✓</span> Sell in your own shop or at markets</li>
+                  <li><span class="tick" aria-hidden="true">✓</span> Up to 500 physical items per design</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Not allowed</h5>
+                <ul class="lic-list">
+                  <li><span class="cross" aria-hidden="true">✕</span> Reselling or sharing the file itself</li>
+                  <li><span class="cross" aria-hidden="true">✕</span> Uploading the file to another marketplace</li>
+                  <li><span class="cross" aria-hidden="true">✕</span> Claiming the artwork as your own</li>
+                </ul>
+              </div>
+            </div>
+            <div style="padding:0 var(--s4) var(--s3)">
+              <a class="link-plain" href="licence.html">Read the full licence — one page, plain English</a>
+            </div>
+          </div>
+
+          <div class="stack" style="gap:var(--s3)">
+            <button class="btn btn-lg btn-block" type="button" data-add data-sku="CI-2214" data-title="Every Thread Is a Prayer" data-price="4.00">Add to cart — $4.00</button>
+            <a class="btn btn-quiet btn-block" href="bundles.html#build">Add to bundle — any 5 for $15</a>
+          </div>
+
+          <div class="reassure" style="margin-top:var(--s4)">
+            <span class="mono">Instant download</span>
+            <span class="mono">Re-download any time</span>
+            <span class="mono">14-day refund if it won’t print</span>
+          </div>
+          <div class="pay-marks" style="margin-top:var(--s3)">
+            <span class="pay-mark">Visa</span><span class="pay-mark">Mastercard</span>
+            <span class="pay-mark">Amex</span><span class="pay-mark">PayPal</span>
+            <span class="pay-mark">Apple Pay</span><span class="pay-mark">Google Pay</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT YOU DOWNLOAD -->
+    <section class="section" style="padding-top:0">
+      <div class="sechead"><span class="reg" aria-hidden="true"></span><h2>What you download</h2></div>
+      <div class="panel panel-pad">
+<pre class="filetree">/Every_Thread_Is_A_Prayer.zip
+├── /print_files
+│   ├── ET_Prayer_4500x5400_300DPI.png      <span class="dim">12.4 MB</span>
+│   ├── ET_Prayer_9000x10800_600DPI.png     <span class="dim">41.2 MB</span>
+│   └── ET_Prayer_vector.svg                <span class="dim">0.8 MB</span>
+└── Licence_Commercial.pdf                  <span class="dim">0.1 MB</span></pre>
+      </div>
+    </section>
+
+    <!-- HOW TO PRINT -->
+    <section class="section" style="padding-top:0" id="how-to-print">
+      <div class="sechead"><span class="reg" aria-hidden="true"></span><h2>How to print this</h2></div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="mono">Step_01</span>
+          <h4>Download &amp; extract</h4>
+          <p>Save the .zip and extract it. Use the 300 DPI PNG for garments; the 600 DPI file is for large-format.</p>
+        </div>
+        <div class="step-card">
+          <span class="mono">Step_02</span>
+          <h4>Mirror the image</h4>
+          <p>Sublimation prints face-down. Set your print dialog to “Mirror image” or the text prints backwards.</p>
+        </div>
+        <div class="step-card">
+          <span class="mono">Step_03</span>
+          <h4>Print on sub paper</h4>
+          <p>Sublimation ink on dedicated sublimation paper. Load your printer’s ICC profile if you have one.</p>
+        </div>
+        <div class="step-card">
+          <span class="mono">Step_04</span>
+          <h4>Heat press</h4>
+          <p>Poly-blend garment, minimum 65% polyester. 400°F / 204°C for 60 seconds at medium pressure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRINTED BY BUYERS -->
+    <section class="section" style="padding-top:0">
+      <div class="sechead">
+        <span class="reg" aria-hidden="true"></span><h2>Printed by buyers</h2>
+        <span class="mono" style="margin-left:auto">Mockups — replace with customer photos</span>
+      </div>
+      <div class="grid-3">
+        <figure style="margin:0">
+          <div style="position:relative;aspect-ratio:4/3;border:1px solid var(--rule)" class="mockup mockup-lg"><img loading="lazy" class="art" src="assets/img/designs/every-thread.svg" alt="Customer print: the design on a white t-shirt"></div>
+          <figcaption style="padding:var(--s3) 0">
+            <span class="mono">The Cotton Thimble · Ohio</span>
+            <p style="font-size:14px;color:var(--muted);margin:8px 0 0">"Pressed clean at 400°F, edges stayed sharp on a 65/35 blend."</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div style="position:relative;aspect-ratio:4/3;border:1px solid var(--rule)" class="mockup mockup-lg"><img loading="lazy" class="art" src="assets/img/designs/quilt-till-you-wilt.svg" alt="Customer print: a quilting design on a tote"></div>
+          <figcaption style="padding:var(--s3) 0">
+            <span class="mono">Longarm &amp; Co · Texas</span>
+            <p style="font-size:14px;color:var(--muted);margin:8px 0 0">"Sold out the first market day. Transparent background saved me an hour of masking."</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div style="position:relative;aspect-ratio:4/3;border:1px solid var(--rule)" class="mockup mockup-lg"><img loading="lazy" class="art" src="assets/img/designs/sunflower.svg" alt="Customer print: sunflower design on a mug"></div>
+          <figcaption style="padding:var(--s3) 0">
+            <span class="mono">Prairie Press Prints · Kansas</span>
+            <p style="font-size:14px;color:var(--muted);margin:8px 0 0">"Colours came through true to the preview. Reordered the vault."</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- OTHERS IN THIS DROP -->
+    <section class="section" style="padding-top:0">
+      <div class="sechead"><span class="reg" aria-hidden="true"></span><h2>Others in this drop</h2></div>
+      <div class="grid-products">
+      <article class="card">
+        <div class="card-art">
+          <div class="flat alpha"><img loading="lazy" src="assets/img/designs/sewing-machine.svg" alt="Vintage Sewing Machine Florals design on a transparent background"></div>
+          <div class="printed mockup"><img loading="lazy" class="art" src="assets/img/designs/sewing-machine.svg" alt="The same design shown printed on a t-shirt"></div>
+          <button class="peek" type="button" data-peek aria-pressed="false">See it printed</button>
+        </div>
+        <div class="card-body">
+          <a class="card-title" href="product.html">Vintage Sewing Machine Florals</a>
+          <span class="mono">300 DPI · PNG · Commercial</span>
+          <div class="card-foot">
+            <span class="price">$4.50</span>
+            <button class="sq" type="button" data-add data-sku="CI-2215" data-title="Vintage Sewing Machine Florals" data-price="4.50" aria-label="Add Vintage Sewing Machine Florals to cart">+</button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-art">
+          <div class="flat alpha"><img loading="lazy" src="assets/img/designs/quilt-till-you-wilt.svg" alt="Quilt Till You Wilt design on a transparent background"></div>
+          <div class="printed mockup"><img loading="lazy" class="art" src="assets/img/designs/quilt-till-you-wilt.svg" alt="The same design shown printed on a t-shirt"></div>
+          <button class="peek" type="button" data-peek aria-pressed="false">See it printed</button>
+        </div>
+        <div class="card-body">
+          <a class="card-title" href="product.html">Quilt Till You Wilt</a>
+          <span class="mono">300 DPI · PNG · Commercial</span>
+          <div class="card-foot">
+            <span class="price">$3.00</span>
+            <button class="sq" type="button" data-add data-sku="CI-2216" data-title="Quilt Till You Wilt" data-price="3.00" aria-label="Add Quilt Till You Wilt to cart">+</button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-art">
+          <div class="flat alpha"><img loading="lazy" src="assets/img/designs/patchwork-block.svg" alt="Modern Patchwork Block design on a transparent background"></div>
+          <div class="printed mockup"><img loading="lazy" class="art" src="assets/img/designs/patchwork-block.svg" alt="The same design shown printed on a t-shirt"></div>
+          <button class="peek" type="button" data-peek aria-pressed="false">See it printed</button>
+        </div>
+        <div class="card-body">
+          <a class="card-title" href="product.html">Modern Patchwork Block</a>
+          <span class="mono">300 DPI · PNG · Commercial</span>
+          <div class="card-foot">
+            <span class="price">$5.50</span>
+            <button class="sq" type="button" data-add data-sku="CI-2217" data-title="Modern Patchwork Block" data-price="5.50" aria-label="Add Modern Patchwork Block to cart">+</button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-art">
+          <div class="flat alpha"><img loading="lazy" src="assets/img/designs/fabric-stash.svg" alt="She Who Hoards Fabric Wins design on a transparent background"></div>
+          <div class="printed mockup"><img loading="lazy" class="art" src="assets/img/designs/fabric-stash.svg" alt="The same design shown printed on a t-shirt"></div>
+          <button class="peek" type="button" data-peek aria-pressed="false">See it printed</button>
+        </div>
+        <div class="card-body">
+          <a class="card-title" href="product.html">She Who Hoards Fabric Wins</a>
+          <span class="mono">300 DPI · PNG · Commercial</span>
+          <div class="card-foot">
+            <span class="price">$3.50</span>
+            <button class="sq" type="button" data-add data-sku="CI-2218" data-title="She Who Hoards Fabric Wins" data-price="3.50" aria-label="Add She Who Hoards Fabric Wins to cart">+</button>
+          </div>
+        </div>
+      </article>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- mobile sticky buy bar -->
+  <div class="buybar">
+    <div>
+      <div class="price" style="font-size:18px">$4.00</div>
+      <span class="mono">Instant · Commercial</span>
+    </div>
+    <button class="btn" type="button" data-add data-sku="CI-2214" data-title="Every Thread Is a Prayer" data-price="4.00">Add to cart</button>
+  </div>

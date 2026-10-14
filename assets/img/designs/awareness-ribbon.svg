@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 660" role="img" aria-label="Awareness ribbon design">
+  <path d="M280 96c-70 84-118 150-118 214 0 62 44 106 118 176 74-70 118-114 118-176 0-64-48-130-118-214Z" fill="none" stroke="#5B4E8C" stroke-width="26" stroke-linejoin="round"/>
+  <path d="M280 150c-48 62-82 108-82 156 0 44 30 78 82 128" fill="none" stroke="#8E7FC4" stroke-width="12" stroke-linecap="round"/>
+  <g fill="#C9873F">
+    <circle cx="150" cy="470" r="20"/><circle cx="410" cy="470" r="20"/>
+  </g>
+  <text x="280" y="576" text-anchor="middle" font-family="Georgia,serif" font-size="44" font-style="italic" fill="#5B4E8C">Still Here</text>
+  <text x="280" y="622" text-anchor="middle" font-family="Impact,'Archivo Black',sans-serif" font-size="26" letter-spacing="8" fill="#3F3663">STILL FIGHTING</text>
+</svg>

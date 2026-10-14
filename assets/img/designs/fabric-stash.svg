@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Stack of folded fabric with snips">
+  <g>
+    <rect x="110" y="400" width="330" height="52" rx="6" fill="#2E6171"/>
+    <rect x="126" y="352" width="298" height="50" rx="6" fill="#C9873F"/>
+    <rect x="142" y="306" width="266" height="48" rx="6" fill="#7C2D3A"/>
+    <rect x="158" y="262" width="234" height="46" rx="6" fill="#3F6B4F"/>
+    <rect x="174" y="220" width="202" height="44" rx="6" fill="#E8B87C"/>
+  </g>
+  <g stroke="#F7F5F2" stroke-width="3" opacity=".55">
+    <path d="M150 426h250M166 377h218M182 330h186M198 285h154M214 242h122"/>
+  </g>
+  <g transform="translate(408 150) rotate(24)" fill="none" stroke="#1F2937" stroke-width="10" stroke-linecap="round">
+    <path d="M8 8 74 96M74 8 8 96"/>
+    <circle cx="14" cy="118" r="17"/><circle cx="68" cy="118" r="17"/>
+  </g>
+  <text x="300" y="524" text-anchor="middle" font-family="Georgia,serif" font-size="42" font-style="italic" fill="#1F2937">She Who Hoards Fabric</text>
+  <text x="300" y="566" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#7C2D3A">wins</text>
+</svg>

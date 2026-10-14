@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Checkout — Creative Inkers</title>
+<meta name="description" content="Four fields. Your files appear on the next screen.">
+<meta name="theme-color" content="#171519">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,400;112,600;112,800;112,900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/system.css?v=12">
+<style>
+  .co-head{background:var(--bar);color:var(--bar-ink)}
+  .co-head .wrap{display:flex;align-items:center;justify-content:space-between;min-height:56px;gap:var(--s3)}
+  .co-head a{color:#C9C4CD;text-decoration:none;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .co-head a:hover{color:var(--bar-ink)}
+  .co{display:grid;grid-template-columns:58fr 42fr;gap:var(--s5);align-items:start;padding-block:var(--s5)}
+  .co-total-hint{display:none}
+  .legal a{display:inline-block;padding:10px 6px;margin:-10px -6px}
+  .express{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+  .express button{
+    min-height:56px;border:1px solid var(--rule-strong);background:var(--panel);cursor:pointer;
+    font-family:var(--body);font-weight:600;font-size:15px;color:var(--ink);
+    transition:filter var(--dur) var(--ease),border-color var(--dur) var(--ease);
+  }
+  .express button:hover{filter:brightness(1.06);border-color:var(--ink)}
+  .express .x-apple{background:#000;border-color:#000;color:#fff}
+  .express .x-gpay{background:#fff;border-color:var(--rule-strong);color:#3C4043}
+  .express .x-paypal{background:#FFC439;border-color:#FFC439;color:#003087;font-weight:700;font-style:italic}
+  .or{display:flex;align-items:center;gap:var(--s3);margin:var(--s4) 0}
+  .or::before,.or::after{content:"";flex:1;height:1px;background:var(--rule)}
+  .summary{position:sticky;top:var(--s4);min-width:0}
+  .cart-row{display:grid;grid-template-columns:56px minmax(0,1fr) auto auto;gap:var(--s3);align-items:center;padding:var(--s3) 0;border-bottom:1px solid var(--rule)}
+  .cart-thumb{width:56px;height:56px;border:1px solid var(--rule);padding:8px;display:grid;place-items:center}
+  .cart-thumb img{width:100%;height:100%;object-fit:contain}
+  .cart-name{font-size:14.5px;font-weight:600}
+  .totals{display:flex;flex-direction:column;gap:8px;padding-top:var(--s3)}
+  .totals .row-between{font-size:14.5px}
+  .nudge{border:2px solid var(--accent);padding:var(--s3);display:flex;align-items:center;justify-content:space-between;gap:var(--s3);margin:var(--s3) 0}
+  .assure{border-top:1px solid var(--rule);margin-top:var(--s3);padding-top:var(--s3);display:flex;flex-direction:column;gap:8px}
+  @media (max-width:900px){.co{grid-template-columns:1fr}.summary{position:static}.co-total-hint{display:block}}
+  @media (max-width:560px){.express{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="co-head">
+  <div class="wrap">
+    <a href="category.html">← Back to shop</a>
+    <span class="wordmark" style="font-size:16px">Creative Inkers</span>
+    <span class="mono" style="color:#8E8892"><span aria-hidden="true">🔒</span> Secure checkout</span>
+  </div>
+</header>
+
+<main class="wrap co" id="main">
+
+  <!-- FORM -->
+  <div>
+    <h1 style="font-size:clamp(28px,4vw,40px);margin-bottom:var(--s2)">Checkout</h1>
+    <span class="mono co-total-hint" style="margin-bottom:var(--s4)">2 items · $8.00 — details below</span>
+    <div style="height:var(--s3)"></div>
+
+    <span class="mono" id="express-label" style="display:block;margin-bottom:var(--s2)">Pay in one tap</span>
+    <div class="express" role="group" aria-labelledby="express-label">
+      <button type="button" class="x-apple" data-demo="Prototype — Apple Pay not connected"> Pay</button>
+      <button type="button" class="x-gpay" data-demo="Prototype — Google Pay not connected">G Pay</button>
+      <button type="button" class="x-paypal" data-demo="Prototype — PayPal not connected">PayPal</button>
+    </div>
+
+    <div class="or"><span class="mono">or</span></div>
+
+    <form class="stack" style="gap:var(--s4)" data-inert data-inert-msg="Prototype — payment is not connected">
+      <div class="field">
+        <label class="field-label" for="co-email">Email <span class="hint">Your download link goes here.</span></label>
+        <input class="input" id="co-email" type="email" autocomplete="email" spellcheck="false" autocapitalize="none" placeholder="you@yourshop.com" required>
+      </div>
+      <div class="field">
+        <label class="field-label" for="co-card">Card number</label>
+        <input class="input" id="co-card" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000" required>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" for="co-exp">Expiry</label>
+          <input class="input" id="co-exp" inputmode="numeric" autocomplete="cc-exp" placeholder="MM / YY" required>
+        </div>
+        <div class="field">
+          <label class="field-label" for="co-cvc">CVC</label>
+          <input class="input" id="co-cvc" inputmode="numeric" autocomplete="cc-csc" placeholder="123" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label" for="co-country">Country <span class="hint">For tax only.</span></label>
+        <select class="input" id="co-country" autocomplete="country-name">
+          <option>United States</option><option>United Kingdom</option><option>Canada</option>
+          <option>Australia</option><option>Germany</option><option>Jordan</option><option>Other</option>
+        </select>
+      </div>
+
+      <button class="btn btn-lg btn-block" type="submit" data-paybtn>Pay $8.00 and download</button>
+
+      <div class="notice-amber" role="note">
+        <span aria-hidden="true">⚡</span>
+        Your files appear on the next screen. No waiting for email.
+      </div>
+
+      <p class="legal" style="font-size:13px;color:var(--dim)">
+        14-day refund if a file won’t print. <a class="link-plain" href="licence.html">Terms</a> · <a class="link-plain" href="licence.html">Privacy</a>
+      </p>
+    </form>
+  </div>
+
+  <!-- SUMMARY -->
+  <aside class="summary panel" aria-label="Order summary" style="padding:var(--s4)">
+    <span class="mono" style="display:block;margin-bottom:var(--s2)" data-cart-items-label>Your files · 2 items</span>
+    <span class="visually-hidden" role="status" data-cart-announce></span>
+
+    <div data-cart-list>
+      <div class="cart-row">
+        <div class="cart-thumb alpha alpha-sm"><img src="assets/img/designs/every-thread.svg" alt=""></div>
+        <div>
+          <div class="cart-name">Every Thread Is a Prayer</div>
+          <span class="mono">PNG · 300 DPI · Commercial</span>
+        </div>
+        <span class="price">$4.00</span>
+        <button class="sq" type="button" data-remove-row aria-label="Remove Every Thread Is a Prayer">✕</button>
+      </div>
+      <div class="cart-row">
+        <div class="cart-thumb alpha alpha-sm"><img src="assets/img/designs/sewing-machine.svg" alt=""></div>
+        <div>
+          <div class="cart-name">Vintage Sewing Machine Florals</div>
+          <span class="mono">PNG · 300 DPI · Commercial</span>
+        </div>
+        <span class="price">$4.00</span>
+        <button class="sq" type="button" data-remove-row aria-label="Remove Vintage Sewing Machine Florals">✕</button>
+      </div>
+    </div>
+
+    <div class="nudge">
+      <span class="mono-md" style="color:var(--accent)">Add 3 more for $15 total — you’re saving $9</span>
+      <a class="btn btn-sm" href="bundles.html#build">Add</a>
+    </div>
+
+    <div class="totals">
+      <div class="row-between"><span style="color:var(--muted)">Subtotal</span><span class="tnum" data-subtotal>$8.00</span></div>
+      <div class="row-between"><span style="color:var(--muted)">Tax</span><span class="tnum">$0.00</span></div>
+      <div class="row-between" style="font-weight:600;font-size:16px"><span>Total</span><span class="tnum" data-subtotal>$8.00</span></div>
+      <button class="link-plain" type="button" data-coupon style="background:none;border:0;padding:0;cursor:pointer;font-family:var(--body)">Have a code?</button>
+    </div>
+
+    <div class="assure">
+      <span class="mono">Instant download</span>
+      <span class="mono">Re-download forever</span>
+      <span class="mono">Commercial licence included</span>
+    </div>
+  </aside>
+
+</main>
+
+<script src="assets/js/site.js?v=12"></script>
+</body>
+</html>

@@ -1,0 +1,671 @@
+/* ==========================================================================
+   ALPHA — Creative Inkers design system
+   Grey workspace, white artboards, one dark anchor band, one magenta accent.
+
+   ORDER IS LOAD-BEARING. Later sections intentionally override earlier ones
+   (mobile compaction > base, touch-feel > compaction). Append; don't reorder.
+
+   Map: tokens · type · layout · checkerboard · dark band · buttons · panels ·
+   cards · tables · licence · chips/forms · footer · fixed bars · responsive ·
+   mockup · layout guards · mobile compaction · touch & platform · a11y
+   ========================================================================== */
+
+:root{
+  /* --- colour ------------------------------------------------------------ */
+  --ground:#EAE8EA;        /* page chrome: cool grey, faint magenta bias      */
+  --panel:#FFFFFF;         /* cards, artboards, anything raised               */
+  --panel-2:#F3F1F3;       /* secondary fill, table heads                     */
+  --panel-3:#FBFAFB;
+  --bar:#171519;           /* the single dark element: header + footer        */
+  --bar-ink:#F7F5F7;
+  --bar-muted:#8E8892;
+  --rule:#D5D1D6;
+  --rule-strong:#BEB8C0;
+  --ink:#171519;
+  --muted:#57525C;
+  --dim:#6B6570;          /* 4.63:1 on --ground (was 3.83, failed 1.4.3) */
+  --accent:#C50948;        /* 4.91:1 on --ground, 5.99:1 on white (1.4.3)   */
+  --accent-bright:#FF2D6F; /* on dark ground only                             */
+  --accent-wash:#FDEAF0;
+  --amber:#FFB020;         /* fill only, never text on light                  */
+  --amber-ink:#7A4E00;
+  --good:#0E7A55;
+  --good-wash:#E7F4EE;
+
+  /* --- alpha checkerboard ------------------------------------------------ */
+  --check-a:#FFFFFF;
+  --check-b:#E1E1E1;
+
+  /* --- spacing scale ----------------------------------------------------- */
+  /* 8pt grid. Every spacing value is a multiple of 8px (4px half-step for
+     hairline-adjacent nudges). Type sizes and 1-2px rules are exempt. */
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:40px; --s6:64px; --s7:104px;
+
+  /* device safe areas (require viewport-fit=cover in the meta tag) */
+  --safe-t:env(safe-area-inset-top,0px);
+  --safe-r:env(safe-area-inset-right,0px);
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-l:env(safe-area-inset-left,0px);
+
+  /* --- type -------------------------------------------------------------- */
+  --display:'Archivo','Archivo Black','Helvetica Neue',Arial,sans-serif;
+  --body:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono','SF Mono',Menlo,Consolas,monospace;
+
+  --ease:cubic-bezier(.77,0,.175,1);
+  --dur:180ms;
+
+  --maxw:1280px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{-webkit-text-size-adjust:100%;color-scheme:light;scroll-padding-top:96px;scroll-padding-bottom:32px}
+
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;display:block}
+svg{display:block}
+
+/* --------------------------------------------------------------------------
+   Type
+   -------------------------------------------------------------------------- */
+h1,h2,h3,h4,h5{
+  font-family:var(--display);
+  font-variation-settings:'wdth' 112;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:-.02em;
+  line-height:.94;
+  text-wrap:balance;
+  margin:0;
+}
+h1{font-size:clamp(36px,6vw,72px)}
+h2{font-size:clamp(26px,3.6vw,44px)}
+h3{font-size:clamp(19px,2.2vw,26px);font-weight:800}
+h4{font-size:17px;font-weight:800;letter-spacing:0}
+
+p{margin:0 0 var(--s3)}
+p:last-child{margin-bottom:0}
+a{color:var(--accent);text-underline-offset:3px}
+
+.mono{
+  font-family:var(--mono);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:var(--dim);
+  font-variant-numeric:tabular-nums;
+}
+.mono-md{font-family:var(--mono);font-size:12px;letter-spacing:.1em;font-variant-numeric:tabular-nums}
+.lede{font-size:clamp(17px,1.6vw,20px);line-height:1.5;color:var(--muted);max-width:58ch}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* --------------------------------------------------------------------------
+   Layout
+   -------------------------------------------------------------------------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:calc(var(--s4) + var(--safe-l));padding-right:calc(var(--s4) + var(--safe-r))}
+.wrap-narrow{max-width:960px;margin:0 auto;padding-left:calc(var(--s4) + var(--safe-l));padding-right:calc(var(--s4) + var(--safe-r))}
+.stack{display:flex;flex-direction:column;gap:var(--s3)}
+.row{display:flex;align-items:center;gap:var(--s3)}
+.row-between{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);flex-wrap:wrap}
+.section{padding-block:var(--s6)}
+.hr{height:1px;background:var(--rule);border:0;margin:0}
+
+/* registration crosshair — a printer's mark, used as structure */
+.reg{display:inline-block;width:13px;height:13px;position:relative;flex:none}
+.reg::before,.reg::after{content:"";position:absolute;background:var(--accent)}
+.reg::before{left:6px;top:0;width:1px;height:13px}
+.reg::after{top:6px;left:0;height:1px;width:13px}
+.sechead{display:flex;align-items:center;gap:var(--s3);margin-bottom:var(--s4);flex-wrap:wrap}
+
+/* --------------------------------------------------------------------------
+   The alpha checkerboard — the signature device
+   -------------------------------------------------------------------------- */
+.alpha{
+  background-color:var(--check-a);
+  background-image:
+    linear-gradient(45deg,var(--check-b) 25%,transparent 25%),
+    linear-gradient(-45deg,var(--check-b) 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,var(--check-b) 75%),
+    linear-gradient(-45deg,transparent 75%,var(--check-b) 75%);
+  background-size:16px 16px;
+  background-position:0 0,0 8px,8px -8px,-8px 0;
+}
+.alpha-sm{background-size:10px 10px;background-position:0 0,0 5px,5px -5px,-5px 0}
+
+/* --------------------------------------------------------------------------
+   Dark band: header + footer
+   -------------------------------------------------------------------------- */
+.utility{background:var(--bar);color:var(--bar-muted);border-bottom:1px solid #2A272E}
+.utility .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);min-height:40px;flex-wrap:wrap}
+.utility .mono{color:var(--bar-muted)}
+.utility-specs{display:flex;gap:var(--s4);flex-wrap:wrap}
+
+.masthead{background:var(--bar);color:var(--bar-ink);position:sticky;top:0;z-index:60}
+.masthead .wrap{display:flex;align-items:center;gap:var(--s4);min-height:72px}
+.wordmark{
+  font-family:var(--display);font-variation-settings:'wdth' 112;font-weight:900;
+  text-transform:uppercase;letter-spacing:-.01em;font-size:20px;line-height:1;
+  color:var(--bar-ink);text-decoration:none;white-space:nowrap;
+}
+.wordmark:hover{color:#fff}
+.nav{display:flex;gap:var(--s4);margin-left:var(--s3)}
+.nav a{
+  font-family:var(--body);font-size:14px;font-weight:500;color:#C9C4CD;
+  text-decoration:none;padding:8px 0;border-bottom:2px solid transparent;
+  transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.nav a:hover{color:var(--bar-ink)}
+.nav a[aria-current="page"]{color:var(--bar-ink);border-bottom-color:var(--accent-bright)}
+
+.search-field{
+  flex:1;min-width:0;display:flex;align-items:center;gap:var(--s2);
+  background:#221F26;border:1px solid #35313B;padding:0 var(--s3);height:40px;
+}
+.search-field:focus-within{border-color:var(--accent-bright)}
+.search-field input{
+  flex:1;min-width:0;background:transparent;border:0;color:var(--bar-ink);
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;height:100%;
+}
+.search-field input::placeholder{color:#7B7583}
+.search-field input:focus{outline:none}
+
+.mast-actions{display:flex;align-items:center;gap:var(--s3);margin-left:auto}
+.icon-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-width:48px;min-height:48px;background:transparent;border:0;cursor:pointer;
+  color:#C9C4CD;font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;text-decoration:none;
+  transition:color var(--dur) var(--ease);
+}
+.icon-btn:hover{color:var(--bar-ink)}
+.cart-count{
+  display:inline-block;min-width:16px;height:16px;padding:0 4px;
+  background:var(--accent-bright);color:#fff;font-family:var(--mono);font-size:10px;
+  line-height:16px;text-align:center;font-variant-numeric:tabular-nums;
+}
+.menu-toggle{display:none}
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;background:transparent;cursor:pointer;
+  border:2px solid var(--accent);padding:12px 24px;min-height:48px;
+  box-shadow:4px 4px 0 var(--accent);
+  transition:box-shadow var(--dur) var(--ease),transform var(--dur) var(--ease);
+}
+.btn:hover,.btn:focus-visible{box-shadow:0 0 0 var(--accent);transform:translate(4px,4px)}
+.btn:active{box-shadow:0 0 0 var(--accent);transform:translate(4px,4px)}
+.btn-block{width:100%}
+.btn-lg{font-size:13px;padding:16px 32px;min-height:64px}
+
+.btn-quiet{
+  border:1px solid var(--rule-strong);box-shadow:none;color:var(--ink);
+  padding:12px 24px;
+  transition:border-color var(--dur) var(--ease),background var(--dur) var(--ease);
+}
+.btn-quiet:hover,.btn-quiet:focus-visible{transform:none;box-shadow:none;border-color:var(--ink);background:var(--panel-2)}
+
+.btn-sm{padding:8px 16px;min-height:40px;font-size:11px;border-width:1px;box-shadow:2px 2px 0 var(--accent)}
+.btn-sm:hover{box-shadow:0 0 0 var(--accent);transform:translate(2px,2px)}
+
+.link-plain{
+  font-family:var(--body);font-size:14px;color:var(--muted);
+  text-decoration:underline;text-decoration-color:var(--rule-strong);
+}
+.link-plain:hover{color:var(--accent);text-decoration-color:var(--accent)}
+
+/* square icon-only control */
+.sq{
+  width:40px;height:40px;padding:0;flex:none;display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--rule-strong);background:var(--panel);color:var(--ink);cursor:pointer;
+  transition:border-color var(--dur) var(--ease),color var(--dur) var(--ease);
+}
+.sq:hover,.sq:focus-visible{border-color:var(--accent);color:var(--accent)}
+
+/* --------------------------------------------------------------------------
+   Panels
+   -------------------------------------------------------------------------- */
+.panel{background:var(--panel);border:1px solid var(--rule)}
+.panel-pad{padding:var(--s5)}
+.panel-accent{border:2px solid var(--accent)}
+.panel-head{
+  padding:var(--s3) var(--s4);border-bottom:1px solid var(--rule);background:var(--panel-2);
+  display:flex;align-items:center;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;
+}
+
+/* --------------------------------------------------------------------------
+   Product card
+   -------------------------------------------------------------------------- */
+.grid-products{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+
+.card{
+  position:relative; /* ground for the stretched title link */
+  background:var(--panel);border:1px solid var(--rule);display:flex;flex-direction:column;
+  transition:border-color var(--dur) var(--ease);
+}
+.card:hover{border-color:var(--rule-strong)}
+.card-art{
+  position:relative;aspect-ratio:1/1;overflow:hidden;border-bottom:1px solid var(--rule);
+}
+.card-art .flat,.card-art .printed{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:opacity var(--dur) var(--ease);
+}
+.card-art .flat{opacity:1;padding:12%}
+.card-art .flat img,.card-art .flat svg{width:100%;height:100%;object-fit:contain}
+.card-art .printed{opacity:0}
+.card:hover .card-art .flat,.card-art.show-printed .flat{opacity:0}
+.card:hover .card-art .printed,.card-art.show-printed .printed{opacity:1}
+.card-body{padding:var(--s3);display:flex;flex-direction:column;gap:var(--s2);flex:1}
+.card-title{
+  font-family:var(--body);font-size:15px;font-weight:600;line-height:1.35;
+  color:var(--ink);text-decoration:none;
+}
+.card-title:hover{color:var(--accent)}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);margin-top:auto}
+.price{font-family:var(--mono);font-size:15px;font-weight:500;color:var(--accent);font-variant-numeric:tabular-nums}
+.price-lg{font-size:28px;letter-spacing:-.01em}
+
+/* touch equivalent of the hover crossfade */
+.peek{
+  position:absolute;top:8px;right:8px;z-index:2;
+  font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--panel);border:1px solid var(--rule-strong);color:var(--muted);
+  padding:8px 12px;cursor:pointer;min-height:32px;
+}
+.peek:hover,.peek:focus-visible{border-color:var(--accent);color:var(--accent)}
+
+/* --------------------------------------------------------------------------
+   Spec table
+   -------------------------------------------------------------------------- */
+.spec{width:100%;border-collapse:collapse;border:1px solid var(--rule)}
+.spec th,.spec td{padding:12px var(--s3);border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+.spec tr:last-child th,.spec tr:last-child td{border-bottom:0}
+.spec th{
+  font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--dim);font-weight:400;width:42%;background:var(--panel-2);
+}
+.spec td{font-family:var(--mono);font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums}
+
+.table{width:100%;border-collapse:collapse;font-size:14px}
+.table th{
+  font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--dim);font-weight:400;text-align:left;padding:var(--s3);
+  background:var(--panel-2);border-bottom:1px solid var(--rule);
+}
+.table td{padding:var(--s3);border-bottom:1px solid var(--rule);color:var(--muted);font-variant-numeric:tabular-nums}
+.table tr:last-child td{border-bottom:0}
+.table td:first-child{color:var(--ink);font-weight:500}
+.table .col-hi{background:var(--accent-wash)}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);background:var(--panel)}
+
+/* --------------------------------------------------------------------------
+   Licence block
+   -------------------------------------------------------------------------- */
+.licence{border:2px solid var(--accent);background:var(--panel)}
+.licence-head{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);padding:var(--s3) var(--s4) 0;
+}
+.licence-cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);padding:var(--s3) var(--s4) var(--s4)}
+.licence-cols h5{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dim);font-weight:400;margin:0 0 var(--s2);
+}
+.lic-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.lic-list li{
+  display:grid;grid-template-columns:16px 1fr;gap:8px;align-items:start;
+  font-size:13.5px;line-height:1.45;color:var(--ink);
+}
+.tick,.cross{
+  width:16px;height:16px;flex:none;margin-top:2px;display:inline-flex;
+  align-items:center;justify-content:center;font-size:11px;font-weight:700;line-height:1;
+}
+.tick{background:var(--good-wash);color:var(--good)}
+.cross{background:var(--accent-wash);color:var(--accent)}
+
+/* --------------------------------------------------------------------------
+   Chips, filters, accordions
+   -------------------------------------------------------------------------- */
+.chip{
+  display:inline-flex;align-items:center;gap:8px;border-radius:999px;
+  border:1px solid var(--rule-strong);background:var(--panel);
+  padding:8px 16px;min-height:40px;cursor:pointer;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);
+  transition:border-color var(--dur) var(--ease),color var(--dur) var(--ease),background var(--dur) var(--ease);
+}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--bar);border-color:var(--bar);color:var(--bar-ink)}
+.chip-x{font-size:13px;line-height:1}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s2)}
+
+.filter-group{border-bottom:1px solid var(--rule);padding:var(--s3) 0}
+.filter-group:last-child{border-bottom:0}
+.filter-group > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dim);padding:4px 0;
+}
+.filter-group > summary::-webkit-details-marker{display:none}
+.filter-group > summary::after{content:"–";font-size:14px;color:var(--dim)}
+.filter-group:not([open]) > summary::after{content:"+"}
+.filter-body{padding-top:var(--s3);display:flex;flex-direction:column;gap:8px}
+
+.check{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink);cursor:pointer;min-height:32px}
+.check input{
+  appearance:none;width:16px;height:16px;flex:none;border:1px solid var(--rule-strong);
+  background:var(--panel);cursor:pointer;position:relative;
+}
+.check input:checked{background:var(--ink);border-color:var(--ink)}
+.check input:checked::after{
+  content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;
+  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);
+}
+.check input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.acc{border-bottom:1px solid var(--rule)}
+.acc:last-child{border-bottom:0}
+.acc > summary{
+  list-style:none;cursor:pointer;padding:var(--s4) 0;
+  display:flex;align-items:center;justify-content:space-between;gap:var(--s3);
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink);
+}
+.acc > summary::-webkit-details-marker{display:none}
+.acc > summary::after{content:"+";font-size:18px;color:var(--accent);line-height:1}
+.acc[open] > summary::after{content:"–"}
+.acc-body{padding:0 0 var(--s4);color:var(--muted);font-size:15px;max-width:70ch}
+
+/* --------------------------------------------------------------------------
+   Forms
+   -------------------------------------------------------------------------- */
+.field{display:flex;flex-direction:column;gap:8px}
+.field-label{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dim);display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;
+}
+.field-label .hint{text-transform:none;letter-spacing:.02em;color:var(--muted);font-size:11px}
+.input{
+  width:100%;background:var(--panel);border:1px solid var(--rule-strong);
+  padding:16px var(--s3);min-height:56px;
+  font-family:var(--body);font-size:15px;color:var(--ink);
+  transition:border-color var(--dur) var(--ease);
+}
+.input::placeholder{color:#A29CA8}
+.input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+select.input{
+  appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+  background-position:calc(100% - 22px) 25px,calc(100% - 16px) 25px;
+  background-size:6px 6px,6px 6px;background-repeat:no-repeat;
+}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+
+.notice-amber{
+  background:var(--amber);color:var(--ink);padding:var(--s3);
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  line-height:1.5;display:flex;gap:var(--s2);align-items:center;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.site-foot{background:var(--bar);color:#9F99A6;padding:var(--s6) 0 var(--s5);margin-top:var(--s7)}
+.site-foot .wordmark{display:inline-block;margin-bottom:var(--s4)}
+.foot-cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--s5)}
+.foot-cols .ft{
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:#6E6875;margin:0 0 var(--s3);
+}
+.foot-cols ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.foot-cols a{color:#C9C4CD;text-decoration:none;font-size:14px}
+.foot-cols a:hover{color:#fff;text-decoration:underline}
+.foot-bottom{
+  border-top:1px solid #2A272E;margin-top:var(--s5);padding-top:var(--s4);
+  display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;
+}
+
+/* payment marks */
+.pay-marks{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pay-mark{
+  border:1px solid var(--rule-strong);background:var(--panel);color:var(--muted);
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+  padding:8px;line-height:1;
+}
+.site-foot .pay-mark{border-color:#3A3641;background:transparent;color:#9F99A6}
+
+/* --------------------------------------------------------------------------
+   Sticky mobile buy bar
+   -------------------------------------------------------------------------- */
+.buybar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+  background:var(--panel);border-top:1px solid var(--rule);
+  padding:var(--s3);
+  padding-left:calc(var(--s3) + var(--safe-l));
+  padding-right:calc(var(--s3) + var(--safe-r));
+  padding-bottom:calc(var(--s3) + var(--safe-b));
+  align-items:center;justify-content:space-between;gap:var(--s3);
+}
+
+/* --------------------------------------------------------------------------
+   Toast
+   -------------------------------------------------------------------------- */
+.toast{
+  position:fixed;left:50%;bottom:calc(var(--s5) + var(--safe-b));transform:translate(-50%,200%);
+  z-index:200;background:var(--bar);color:var(--bar-ink);
+  border-left:3px solid var(--accent-bright);padding:var(--s3) var(--s4);
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  transition:transform 240ms var(--ease);max-width:calc(100vw - 32px);
+}
+.toast.show{transform:translate(-50%,0)}
+
+/* --------------------------------------------------------------------------
+   Cookie bar — slim, equal weight, never a wall
+   -------------------------------------------------------------------------- */
+.cookiebar{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;
+  background:var(--bar);color:#C9C4CD;border-top:1px solid #35313B;
+  padding:var(--s3) var(--s4);
+  padding-left:calc(var(--s4) + var(--safe-l));
+  padding-right:calc(var(--s4) + var(--safe-r));
+  padding-bottom:calc(var(--s3) + var(--safe-b));
+  display:flex;align-items:center;justify-content:center;gap:var(--s4);flex-wrap:wrap;
+}
+.cookiebar[hidden]{display:none}
+.cookiebar p{margin:0;font-size:13px}
+.cookiebar .btn-quiet{border-color:#4A4552;color:var(--bar-ink);background:transparent;padding:8px 16px;min-height:40px}
+.cookiebar .btn-quiet:hover{background:#2B2731;border-color:#6A6474}
+
+/* --------------------------------------------------------------------------
+   Utility
+   -------------------------------------------------------------------------- */
+.badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  padding:4px 8px;line-height:1;
+}
+.badge-amber{background:var(--amber);color:var(--ink)}
+.badge-good{background:var(--good);color:#fff}
+.badge-line{border:1px solid var(--rule-strong);color:var(--muted)}
+
+.visually-hidden{
+  position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+.skip{
+  position:absolute;left:var(--s3);top:-60px;z-index:300;background:var(--accent);color:#fff;
+  padding:12px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;text-decoration:none;transition:top var(--dur) var(--ease);
+}
+.skip:focus{top:var(--s3)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width:1080px){
+  .grid-products{grid-template-columns:repeat(3,1fr)}
+  .foot-cols{grid-template-columns:1fr 1fr;gap:var(--s4)}
+}
+@media (max-width:860px){
+  .nav,.utility-specs{display:none}
+  .menu-toggle{display:inline-flex}
+  .grid-products,.grid-3{grid-template-columns:repeat(2,1fr)}
+  .licence-cols{grid-template-columns:1fr}
+  .section{padding-block:var(--s5)}
+  h1{font-size:clamp(32px,9vw,48px)}
+  .search-field{order:3;flex-basis:100%;margin-bottom:var(--s2)}
+  .masthead .wrap{flex-wrap:wrap;padding-top:12px}
+}
+@media (max-width:560px){
+  .field-row{grid-template-columns:1fr}
+  .panel-pad{padding:var(--s4)}
+  .wrap,.wrap-narrow{padding-left:calc(var(--s3) + var(--safe-l));padding-right:calc(var(--s3) + var(--safe-r))}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+
+@media print{
+  .masthead,.utility,.site-foot,.cookiebar,.buybar,.toast{display:none!important}
+  body{background:#fff}
+}
+
+/* --------------------------------------------------------------------------
+   Garment mockup — the "on a shirt" view.
+   Built from a silhouette + the design composited on the chest, so it is
+   honestly a mockup rather than a photograph we do not have.
+   -------------------------------------------------------------------------- */
+.mockup{
+  position:absolute;inset:0;display:grid;place-items:center;
+  background:var(--panel-2);
+}
+.mockup::before{
+  content:"";position:absolute;inset:0;
+  background:url("../img/tee.svg?v=3") center/contain no-repeat;
+}
+.mockup img,.mockup .art{
+  position:relative;width:34%;max-height:30%;object-fit:contain;
+  transform:translateY(-4%);
+}
+.mockup-lg .art{width:30%;max-height:34%}
+
+/* --------------------------------------------------------------------------
+   Layout guards
+   -------------------------------------------------------------------------- */
+/* grid min-content guard: mosaics of intrinsic-width SVGs must not widen tracks */
+.mosaic{min-width:0;overflow:hidden}
+.mosaic .cellimg{min-width:0;min-height:0;overflow:hidden}
+.mosaic .cellimg img{max-width:100%;max-height:100%}
+.bundle-panels > .panel,.vaults > .panel{min-width:0}
+
+/* author display rules must not defeat the hidden attribute */
+[hidden]{display:none!important}
+
+/* on narrow screens the search row wraps; a 150px sticky header eats the page */
+@media (max-width:860px){
+  .masthead{position:static}
+}
+
+/* --------------------------------------------------------------------------
+   Mobile compaction (header, density, touch targets)
+   -------------------------------------------------------------------------- */
+@media (max-width:860px){
+  /* one tight header row: wordmark left, actions right, search below */
+  .masthead .wrap{flex-wrap:wrap;justify-content:space-between;gap:var(--s2);min-height:56px;padding-top:var(--s2)}
+  .wordmark{font-size:16px}
+  .mast-actions{margin-left:0;gap:var(--s2)}
+  .mast-actions .icon-btn{min-width:0;padding:0 var(--s2)}
+  .search-field{order:3;flex-basis:100%;margin-bottom:var(--s2);height:48px}
+}
+@media (max-width:560px){
+  /* keep density: 2-up, not 1-up */
+  .specbar .wrap{grid-template-columns:1fr 1fr}
+  .specbar .cell{border-bottom:1px solid var(--rule);padding:var(--s4) var(--s3)}
+  .specbar .cell:nth-child(odd){border-right:1px solid var(--rule)}
+  .specbar .cell:nth-child(n+3){border-bottom:0}
+  .subjects{grid-template-columns:1fr 1fr;gap:0 var(--s4)}
+  /* printed strip becomes one scrollable row */
+  .printed-strip{display:flex;overflow-x:auto;gap:var(--s3);scroll-snap-type:x mandatory;padding-bottom:var(--s2)}
+  .printed-strip figure{flex:0 0 44%;scroll-snap-align:start}
+}
+/* touch targets on coarse pointers */
+@media (pointer:coarse){
+  .sq{width:48px;height:48px}
+  .peek{min-height:48px;padding:8px 12px}
+  .chip{min-height:48px}
+  .foot-cols a{display:inline-block;padding:8px 0}
+}
+@media (max-width:560px){
+  .mast-actions a[href$="library.html"]{display:none}
+}
+
+/* --------------------------------------------------------------------------
+   Touch & platform feel (tap states, zoom guard, scroll containment,
+   bottom-bar stacking, live-region-safe toasts)
+   -------------------------------------------------------------------------- */
+/* kill the default grey/blue tap flash; replace with our own pressed states */
+a,button,summary,label,.card{-webkit-tap-highlight-color:transparent}
+a,button,summary,label,input,select{touch-action:manipulation}
+@media (hover:none){
+  .btn-quiet:active{background:var(--panel-2);border-color:var(--ink)}
+  .chip:active{border-color:var(--ink);color:var(--ink)}
+  .card:active{border-color:var(--rule-strong)}
+  .icon-btn:active,.nav a:active{color:var(--bar-ink)}
+  .link-plain:active,.card-title:active{color:var(--accent)}
+}
+
+/* inputs under 16px trigger iOS focus auto-zoom — hold 16px on touch layouts */
+@media (max-width:860px){
+  .input,.search-field input{font-size:16px}
+}
+
+/* horizontal strips must not chain into page swipe-back */
+.printed-strip,.viewer-tabs{overscroll-behavior-x:contain}
+
+/* accordion easing is JS-driven (site.js) so Safari matches Chrome */
+
+/* fixed bottom bars stack instead of overlapping: cookie bar lifts the dock */
+body.cookie-open .buybar{bottom:var(--cookie-h,0px)}
+body.cookie-open{scroll-padding-bottom:var(--cookie-h,0px)}
+
+/* toast clears the CTA dock on screens that have one */
+@media (max-width:980px){
+  body:has(.buybar) .toast{bottom:calc(120px + var(--safe-b))}
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility
+   -------------------------------------------------------------------------- */
+/* keyboard focus must be visible on the dark band */
+.masthead :focus-visible,.utility :focus-visible,.site-foot :focus-visible,.cookiebar :focus-visible,.co-head :focus-visible{
+  outline-color:var(--accent-bright);
+}
+
+/* whole card tappable via the title link; controls stay above the overlay */
+.card-title::after{content:"";position:absolute;inset:0}
+.card .peek{z-index:2}
+.card .sq{position:relative;z-index:2}
+
+/* toast clears the cookie bar, and the dock the cookie bar lifted */
+body.cookie-open .toast{bottom:calc(var(--cookie-h,0px) + var(--s3) + var(--safe-b))}
+@media (max-width:980px){
+  body.cookie-open:has(.buybar) .toast{bottom:calc(var(--cookie-h,0px) + 104px + var(--safe-b))}
+}

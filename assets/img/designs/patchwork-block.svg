@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Modern geometric patchwork quilt block">
+  <g>
+    <rect x="60" y="60" width="160" height="160" fill="#2E6171"/>
+    <path d="M60 60h160L60 220Z" fill="#8AB8C4"/>
+    <rect x="220" y="60" width="160" height="160" fill="#C9873F"/>
+    <circle cx="300" cy="140" r="54" fill="#F2E3C6"/>
+    <rect x="380" y="60" width="160" height="160" fill="#2E6171"/>
+    <path d="M540 60v160L380 220Z" fill="#8AB8C4"/>
+
+    <rect x="60" y="220" width="160" height="160" fill="#C9873F"/>
+    <path d="M60 220h160v160Z" fill="#E8B87C"/>
+    <rect x="220" y="220" width="160" height="160" fill="#7C2D3A"/>
+    <path d="M300 240 380 300 300 360 220 300Z" fill="#F2E3C6"/>
+    <rect x="380" y="220" width="160" height="160" fill="#C9873F"/>
+    <path d="M540 220v160H380Z" fill="#E8B87C"/>
+
+    <rect x="60" y="380" width="160" height="160" fill="#2E6171"/>
+    <path d="M60 540V380l160 160Z" fill="#8AB8C4"/>
+    <rect x="220" y="380" width="160" height="160" fill="#C9873F"/>
+    <circle cx="300" cy="460" r="54" fill="#F2E3C6"/>
+    <rect x="380" y="380" width="160" height="160" fill="#2E6171"/>
+    <path d="M540 540H380L540 380Z" fill="#8AB8C4"/>
+  </g>
+  <g stroke="#F7F5F2" stroke-width="5" fill="none">
+    <path d="M60 60h480v480H60Z"/><path d="M220 60v480M380 60v480M60 220h480M60 380h480"/>
+  </g>
+</svg>

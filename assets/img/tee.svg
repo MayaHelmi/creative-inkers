@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 560" role="img" aria-label="Blank t-shirt">
+  <path d="M186 40 118 74 60 128l52 62 46-32v354c0 6 5 10 11 10h194c6 0 11-4 11-10V158l46 32 52-62-58-54-68-34c-14 26-40 42-74 42s-60-16-74-42Z" fill="#DEDCDA" stroke="#C3C0BE" stroke-width="3"/>
+  <path d="M186 40c14 26 40 42 74 42s60-16 74-42" fill="none" stroke="#C3C0BE" stroke-width="3"/>
+  <path d="M158 190v-32M374 190v-32" stroke="#C9C6C4" stroke-width="2"/>
+  <path d="M172 468c28 9 62 14 88 14s60-5 88-14" fill="none" stroke="#C9C6C4" stroke-width="2"/>
+</svg>
